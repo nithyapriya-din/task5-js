@@ -1,0 +1,124 @@
+Print odd numbers in an array:
+// Anonymous function
+let printOddNumbers = function(arr) {
+    arr.forEach(num => {
+        if(num % 2 !== 0) {
+            console.log(num);
+        }
+    });
+};
+
+// IIFE
+(function(arr) {
+    arr.forEach(num => {
+        if(num % 2 !== 0) {
+            console.log(num);
+        }
+    });
+})([1, 2, 3, 4, 5]);
+2.Convert all the strings to title caps in a string array:
+// Anonymous function
+let convertToTitleCaps = function(arr) {
+    return arr.map(str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase());
+};
+
+// IIFE
+let titleCapsArray = (function(arr) {
+    return arr.map(str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase());
+})(["hello", "world", "javascript"]);
+console.log(titleCapsArray);
+3.Sum of all numbers in an array:
+// Anonymous function
+let sumOfNumbers = function(arr) {
+    return arr.reduce((acc, curr) => acc + curr, 0);
+};
+
+// IIFE
+let sum = (function(arr) {
+    return arr.reduce((acc, curr) => acc + curr, 0);
+})([1, 2, 3, 4, 5]);
+console.log(sum);
+4.Return all the prime numbers in an array:
+// Anonymous function
+let getPrimeNumbers = function(arr) {
+    return arr.filter(num => {
+        for(let i = 2; i <= Math.sqrt(num); i++) {
+            if(num % i === 0) {
+                return false;
+            }
+        }
+        return num > 1;
+    });
+};
+
+// IIFE
+let primeNumbers = (function(arr) {
+    return arr.filter(num => {
+        for(let i = 2; i <= Math.sqrt(num); i++) {
+            if(num % i === 0) {
+                return false;
+            }
+        }
+        return num > 1;
+    });
+})([2, 3, 4, 5, 6, 7, 8, 9, 10]);
+console.log(primeNumbers);
+5.Return all the palindromes in an array:
+// Anonymous function
+let getPalindromes = function(arr) {
+    return arr.filter(str => str === str.split('').reverse().join(''));
+};
+
+// IIFE
+let palindromes = (function(arr) {
+    return arr.filter(str => str === str.split('').reverse().join(''));
+})(["radar", "hello", "level", "world", "deified"]);
+console.log(palindromes);
+6.Return median of two sorted arrays of the same size:
+// Anonymous function
+let findMedianSortedArrays = function(arr1, arr2) {
+    let merged = arr1.concat(arr2).sort((a, b) => a - b);
+    let len = merged.length;
+    if(len % 2 === 0) {
+        return (merged[len / 2 - 1] + merged[len / 2]) / 2;
+    } else {
+        return merged[Math.floor(len / 2)];
+    }
+};
+
+// IIFE
+let median = (function(arr1, arr2) {
+    let merged = arr1.concat(arr2).sort((a, b) => a - b);
+    let len = merged.length;
+    if(len % 2 === 0) {
+        return (merged[len / 2 - 1] + merged[len / 2]) / 2;
+    } else {
+        return merged[Math.floor(len / 2)];
+    }
+})([1, 3, 5], [2, 4, 6]);
+console.log(median);
+7.Remove duplicates from an array:
+// Anonymous function
+let removeDuplicates = function(arr) {
+    return arr.filter((item, index) => arr.indexOf(item) === index);
+};
+
+// IIFE
+let uniqueArray = (function(arr) {
+    return arr.filter((item, index) => arr.indexOf(item) === index);
+})([1, 2, 2, 3, 4, 4, 5]);
+console.log(uniqueArray);
+8.Rotate an array by k times:
+// Anonymous function
+let rotateArray = function(arr, k) {
+    k = k % arr.length;
+    return arr.slice(k).concat(arr.slice(0, k));
+};
+
+// IIFE
+let rotatedArray = (function(arr, k) {
+    k = k % arr.length;
+    return arr.slice(k).concat(arr.slice(0, k));
+})([1, 2, 3, 4, 5], 2);
+console.log(rotatedArray);
+
